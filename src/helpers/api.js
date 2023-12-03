@@ -1,9 +1,9 @@
 import { API_URL } from "./url";
 
-export const getPokemons = async () => {
+export const getPokemons = async (nextUrl) => {
   try {
     const url = `${API_URL}/pokemon?limit=20&offset=0`;
-    const response = await fetch(url);
+    const response = await fetch(nextUrl || url);
     const result = await response.json();
     // console.log(JSON.stringify(result, null, 2));
     return result;

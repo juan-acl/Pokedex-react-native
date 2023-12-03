@@ -5,10 +5,12 @@ import PokemonList from "../components/PokemonList";
 
 const Pokedex = () => {
   const [pokemons, setPokemons] = useState([]);
+  const [nextUrl, setNextUrl] = useState(null);
 
   const getPokemonsApi = async () => {
     try {
-      const response = await getPokemons();
+      const response = await getPokemons(nextUrl);
+      setNextUrl(response.next);
       const pokemonArray = [];
       for await (const pokemon of response.results) {
         const pokemonDetail = await DetailPokemons(pokemon.url);
@@ -33,7 +35,11 @@ const Pokedex = () => {
 
   return (
     <SafeAreaView>
-      <PokemonList pokemons={pokemons} />
+      <PokemonList
+        pokemons={pokemons}
+        getPokemonsApi={getPokemonsApi}
+        nextUrl={nextUrl}
+      />
     </SafeAreaView>
   );
 };

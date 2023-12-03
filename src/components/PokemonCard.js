@@ -6,10 +6,14 @@ import {
   TouchableNativeFeedback,
 } from "react-native";
 import React from "react";
+import _ from "lodash";
 import { getColorByPokemon } from "../helpers/getColorByPokemon";
 
 const PokemonCard = (props) => {
   const { pokemon } = props;
+
+  const pokemonColor = getColorByPokemon(pokemon.type);
+  const bgStyle = { backgroundColor: pokemonColor, ...style.bg };
 
   const detailPokemon = () => {};
 
@@ -17,8 +21,8 @@ const PokemonCard = (props) => {
     <TouchableNativeFeedback onPress={detailPokemon}>
       <View style={style.card}>
         <View style={style.spacing}>
-          <View style={style.bg}>
-            <Text style={style.name}>{pokemon.name}</Text>
+          <View style={bgStyle}>
+            <Text style={style.name}>{_.capitalize(pokemon.name)}</Text>
             <Text style={style.id}>#{pokemon.id}</Text>
             <Image source={{ uri: pokemon.image }} style={style.image} />
           </View>
@@ -39,8 +43,9 @@ const style = StyleSheet.create({
     padding: 5,
   },
   bg: {
-    backgroundColor: "#808080",
-    // height: 50,
+    flex: 1,
+    borderRadius: 15,
+    padding: 10,
   },
   image: {
     position: "absolute",

@@ -7,6 +7,7 @@ import AccountScreen from "../screens/Account";
 // import FavoritesScreen from "../screens/Favorites";
 import PokedexScreen from "../screens/Pokedex";
 import icon_pokedex from "../assets/icon_pokedex.jpeg";
+import PokedexStackNavigation from "./PokedexStackNavigation";
 
 const TabNav = createBottomTabNavigator();
 
@@ -25,10 +26,11 @@ const NavigationTab = () => {
       />
       <TabNav.Screen
         name="PokedexScreen"
-        component={PokedexScreen}
+        component={PokedexStackNavigation}
         options={{
           tabBarLabel: "",
           tabBarIcon: () => RenderIcon(),
+          headerShown: false,
         }}
       />
       <TabNav.Screen

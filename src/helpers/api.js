@@ -5,9 +5,20 @@ export const getPokemons = async () => {
     const url = `${API_URL}/pokemon?limit=20&offset=0`;
     const response = await fetch(url);
     const result = await response.json();
+    // console.log(JSON.stringify(result, null, 2));
     return result;
   } catch (error) {
     console.log("Hubo un error getPokemons", error);
+  } finally {
+  }
+};
+
+export const DetailPokemons = async (url) => {
+  try {
+    const response = await fetch(url);
+    const result = await response.json();
+    return result;
+  } catch (error) {
   } finally {
   }
 };

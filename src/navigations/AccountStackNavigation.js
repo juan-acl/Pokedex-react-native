@@ -9,7 +9,7 @@ const AccountStackNavigation = () => {
   return (
     <StackNav.Navigator>
       <StackNav.Screen
-        name="AccountScreen"
+        name="ScreenAccount"
         component={AccountScreen}
         options={{ title: "Mi Cuenta" }}
       />

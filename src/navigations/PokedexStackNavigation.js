@@ -11,7 +11,7 @@ const PokedexStackNavigation = () => {
       <StackNav.Screen
         name="PokeScreen"
         component={PokedexScreen}
-        options={{ title: "Pokemons" }}
+        options={{ title: "", headerTransparent: true }}
       />
       <StackNav.Screen name="PokemonScreen" component={PokedexScreen} />
     </StackNav.Navigator>

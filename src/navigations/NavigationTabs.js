@@ -2,8 +2,9 @@ import React from "react";
 import { Image } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Icon from "react-native-vector-icons/FontAwesome5";
+import FavoriteStackNavigation from "./FavoriteStackNavigation";
 import AccountScreen from "../screens/Account";
-import FavoritesScreen from "../screens/Favorites";
+// import FavoritesScreen from "../screens/Favorites";
 import PokedexScreen from "../screens/Pokedex";
 import icon_pokedex from "../assets/icon_pokedex.jpeg";
 
@@ -32,12 +33,13 @@ const NavigationTab = () => {
       />
       <TabNav.Screen
         name="FavoritesScreen"
-        component={FavoritesScreen}
+        component={FavoriteStackNavigation}
         options={{
           tabBarLabel: "Favoritos",
           tabBarIcon: ({ color, size }) => (
             <Icon name="heart" color={color} size={size} />
           ),
+          headerShown: false, // Opcion para que no me muestre el header del tab y el stack en la misma screen
         }}
       />
     </TabNav.Navigator>

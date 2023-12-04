@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import { getPokemonById } from "../helpers/api";
+import Header from "../components/Pokemon/Header";
 
 const PokemonDetail = (props) => {
   console.log("Detalles", JSON.stringify(props, null, 2));
@@ -27,10 +28,14 @@ const PokemonDetail = (props) => {
 
   if (!pokemonDetail) return null;
   return (
-    <View>
-      <Text>PokemonDetail</Text>
-      <Text>{pokemonDetail.name}</Text>
-    </View>
+    <ScrollView>
+      <Header
+        name={pokemonDetail.name}
+        image={pokemonDetail.sprites.other["official-artwork"].front_default}
+        order={pokemonDetail.order}
+        type={pokemonDetail.types[0].type.name}
+      />
+    </ScrollView>
   );
 };
 

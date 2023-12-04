@@ -7,15 +7,19 @@ import {
 } from "react-native";
 import React from "react";
 import _ from "lodash";
+import { useNavigation } from "@react-navigation/native";
 import { getColorByPokemon } from "../helpers/getColorByPokemon";
 
 const PokemonCard = (props) => {
   const { pokemon } = props;
 
+  const navigation = useNavigation();
   const pokemonColor = getColorByPokemon(pokemon.type);
   const bgStyle = { backgroundColor: pokemonColor, ...style.bg };
 
-  const detailPokemon = () => {};
+  const detailPokemon = () => {
+    navigation.navigate("PokemonDetail", { pokemon }); // Navegamos a otra screen y ademas le pasamos los datos
+  };
 
   return (
     <TouchableNativeFeedback onPress={detailPokemon}>

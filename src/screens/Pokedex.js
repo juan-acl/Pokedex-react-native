@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { View, Text, SafeAreaView } from "react-native";
+// import { SafeAreaView } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context"; // Sirve para que el contenido no se meta en la barra de notificaciones en android
 import { getPokemons, DetailPokemons } from "../helpers/api";
 import PokemonList from "../components/PokemonList";
 

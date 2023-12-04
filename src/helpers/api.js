@@ -22,3 +22,14 @@ export const DetailPokemons = async (url) => {
   } finally {
   }
 };
+
+export const getPokemonById = async (id) => {
+  try {
+    const url = `${API_URL}/pokemon/${id}`;
+    const request = await fetch(url);
+    const response = await request.json();
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};

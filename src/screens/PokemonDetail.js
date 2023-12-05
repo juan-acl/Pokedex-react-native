@@ -10,7 +10,6 @@ import Icon from "react-native-vector-icons/FontAwesome5";
 // Navigation de las props llega si es una screen si es un componente no
 
 const PokemonDetail = (props) => {
-  console.log("Detalles", JSON.stringify(props, null, 2));
   const { pokemon } = props.route.params;
   const [pokemonDetail, setPokemonDetail] = useState(null);
   const navigation = useNavigation();

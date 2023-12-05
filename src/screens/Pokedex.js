@@ -24,7 +24,6 @@ const Pokedex = () => {
         });
       }
       setPokemons([...pokemons, ...pokemonArray]);
-      // console.log("Los pokemons", pokemons);
     } catch (error) {
       console.log("Error en la peticion", error);
     }

@@ -9,7 +9,7 @@ const Account = () => {
   const { username } = useAuth();
   return (
     <SafeAreaView>
-      {username ? <UserData /> : <LoginForm />}
+      {Object.keys(username).length ? <UserData /> : <LoginForm />}
     </SafeAreaView>
   );
 };

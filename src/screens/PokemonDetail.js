@@ -6,11 +6,13 @@ import Header from "../components/Pokemon/Header";
 import Type from "../components/Pokemon/Type";
 import Stats from "../components/Pokemon/Stats";
 import Icon from "react-native-vector-icons/FontAwesome5";
-
+import Favorites from "../components/Pokemon/Favorites";
+import useAuth from "../hooks"
 // Navigation de las props llega si es una screen si es un componente no
 
 const PokemonDetail = (props) => {
   const { pokemon } = props.route.params;
+  const { username } = useAuth()
   const [pokemonDetail, setPokemonDetail] = useState(null);
   const navigation = useNavigation();
 
@@ -26,7 +28,7 @@ const PokemonDetail = (props) => {
 
   useEffect(() => {
     props.navigation.setOptions({
-      headerRight: () => null,
+      headerRight: () => username ? <Favorites id={pokemonDetail?.id} /> : null,
       headerLeft: () => (
         <Icon
           name="arrow-left"
@@ -37,9 +39,7 @@ const PokemonDetail = (props) => {
         />
       ),
     });
-
-    return (cleanUp = () => {});
-  }, []);
+  }, [pokemonDetail]);
 
   useEffect(() => {
     try {
@@ -50,6 +50,7 @@ const PokemonDetail = (props) => {
   }, []);
 
   if (!pokemonDetail) return null;
+
   return (
     <ScrollView>
       <Header

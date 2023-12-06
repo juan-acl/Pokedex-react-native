@@ -1,6 +1,6 @@
 export const API_URL = "https://pokeapi.co/api/v2/";
 
-export const Favorite_Storage = "favorites"
+export const Favorite_Storage = "fav"
 
 export const POKEMON_TYPE_COLORS = {
   normal: "#A8A878",

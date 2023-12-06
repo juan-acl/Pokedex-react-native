@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { View, Text } from 'react-native'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
-import { addFavorite, getFavorites, isFavoritePokemon } from '../../helpers/Favorite'
+import { addFavorite, getFavorites, isFavoritePokemon, removeFavorite } from '../../helpers/Favorite'
 
 export default function Favorites(props) {
     const [isFavorite, setisFavorite] = useState(false);
@@ -16,37 +16,28 @@ export default function Favorites(props) {
     const checkFavorite = async () => {
         const favorites = await isFavoritePokemon(props.id);
         console.log('Checking', favorites)
-        if (favorites !== null || favorites !== undefined) {
+        // if (favorites !== null || favorites !== undefined) {
             setisFavorite(favorites);
-        }
+        // }
     }
 
-    const removeFavorite = async () => {
+    const removeFav = async () => {
+        await removeFavorite(props.id);
         setisFavorite(false);
     }
 
     useEffect(() => {
         checkFavorite()
-    }, [props.id, reload]);
+    }, [props.id, reload, isFavorite]);
 
     const addFavorites = async () => {
-        const favorites = await getFavorites();
+        await addFavorite(props.id)
         onReload()
-        console.log('GetFavorites', favorites)
-        if (favorites !== null) {
-            if (favorites?.includes(props.id)) {
-                console.log('Already in favorites')
-            } else {
-                addFavorite(props.id)
-            }
-        } else {
-            addFavorite(props.id)
-        }
     }
 
     return (
         <View>
-            <Icon name='heart' color="#fff" size={30} onPress={isFavorite ? removeFavorite : addFavorites} style={{ marginRight: 30 }} />
+            <Icon name='heart' color="#fff" size={30} onPress={isFavorite ? removeFav : addFavorites} style={{ marginRight: 30 }} />
         </View>
     )
 }

@@ -4,7 +4,7 @@ import React from "react";
 const Favorites = (props) => {
   return (
     <SafeAreaView>
-      <Text>Favorites</Text>
+      <Text>Fav</Text>
     </SafeAreaView>
   );
 };

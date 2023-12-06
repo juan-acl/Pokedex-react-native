@@ -11,9 +11,8 @@ const Pokedex = () => {
   const getPokemonsApi = async () => {
     try {
       const response = await getPokemons(nextUrl);
-      setNextUrl(response.next);
       const pokemonArray = [];
-      for await (const pokemon of response.results) {
+      for (const pokemon of response.results) {
         const pokemonDetail = await DetailPokemons(pokemon.url);
         pokemonArray.push({
           id: pokemonDetail.id,
@@ -24,6 +23,7 @@ const Pokedex = () => {
         });
       }
       setPokemons([...pokemons, ...pokemonArray]);
+      setNextUrl(response.next);
     } catch (error) {
       console.log("Error en la peticion", error);
     }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { View, Text } from 'react-native'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
-import { addFavorite, getFavorites, isFavoritePokemon, removeFavorite } from '../../helpers/Favorite'
+import { addFavorite, isFavoritePokemon, removeFavorite } from '../../helpers/Favorite'
 
 export default function Favorites(props) {
     const [isFavorite, setisFavorite] = useState(false);

@@ -16,7 +16,7 @@ const FavoriteStackNavigation = () => {
         }}
       />
       <StackNav.Screen
-        name='Pokemon'
+        name='PokemonDetail'
         component={PokemonDetail}
         options={{
           title: '',

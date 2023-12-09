@@ -5,7 +5,7 @@ import { useFocusEffect } from '@react-navigation/native'
 import { getFavorites } from "../helpers/Favorite";
 import { getPokemonById } from "../helpers/api";
 import PokemonList from "../components/PokemonList";
-
+import Logout from "../components/Logout";
 
 const Favorites = (props) => {
   console.log('Validando las props', JSON.stringify(props, null, 2))
@@ -63,9 +63,9 @@ const Favorites = (props) => {
     )
   }else{
     return (
-      <SafeAreaView>
-        <Text> {invalid ? 'No tienes pokemones en tu lista de favoritos.' :'Usuario no loegueado.'}</Text>
-      </SafeAreaView>
+      <Logout
+      
+      />
     );
   }
 

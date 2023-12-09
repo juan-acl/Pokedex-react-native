@@ -14,12 +14,12 @@ const TabNav = createBottomTabNavigator();
 
 const NavigationTab = () => {
   return (
-    <TabNav.Navigator initialRouteName="AccountScreen">
+    <TabNav.Navigator initialRouteName="PokedexScreen">
       <TabNav.Screen
         name="AccountScreen"
         component={AccountStackNavigation}
         options={{
-          tabBarLabel: "Mi cuenta",
+          tabBarLabel: "Mi pokecuenta",
           tabBarIcon: ({ color, size }) => (
             <Icon name="user" size={size} color={color} />
           ),
@@ -39,7 +39,7 @@ const NavigationTab = () => {
         name="FavoritesScreen"
         component={FavoriteStackNavigation}
         options={{
-          tabBarLabel: "Favoritos",
+          tabBarLabel: "Pokefavoritos",
           tabBarIcon: ({ color, size }) => (
             <Icon name="heart" color={color} size={size} />
           ),

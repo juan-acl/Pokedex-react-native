@@ -12,7 +12,7 @@ const FavoriteStackNavigation = () => {
         name="ScreenFavorite"
         component={FavoritesScreen}
         options={{
-          title: "Favoritos",
+          title: "Pokefavoritos",
         }}
       />
       <StackNav.Screen

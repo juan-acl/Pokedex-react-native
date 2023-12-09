@@ -10,7 +10,7 @@ const AccountStackNavigation = () => {
       <StackNav.Screen
         name="ScreenAccount"
         component={AccountScreen}
-        options={{ title: "Mi Cuenta" }}
+        options={{ title: "Mi pokecuenta" }}
       />
     </StackNav.Navigator>
   );

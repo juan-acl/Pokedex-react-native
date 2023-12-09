@@ -6,10 +6,10 @@ import useAuth from "../hooks";
 
 
 const Account = () => {
-  const { username } = useAuth();
+  const { username } = useAuth()
   return (
     <SafeAreaView>
-      {Object.keys(username).length ? <UserData /> : <LoginForm />}
+      { username !== '' ? <UserData /> : <LoginForm />}
     </SafeAreaView>
   );
 };

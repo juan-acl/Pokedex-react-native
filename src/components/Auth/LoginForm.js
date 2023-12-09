@@ -21,7 +21,6 @@ export default function LoginForm() {
         validateOnChange: true,
         validateOnBlur: true,
         onSubmit: (form) => {
-            console.log('Form', form)
             const { username, password } = form
             if (username !== User.username || password !== User.password) {
                 setError('Username or password invalid!')

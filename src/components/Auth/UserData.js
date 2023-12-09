@@ -1,21 +1,21 @@
 import React from 'react'
 import { View, Text, StyleSheet, Button } from 'react-native'
+import { DetailUser } from '../../helpers/userDB'
 import useAuth from '../../hooks'
 
 export default function UserData() {
-    const { username, logout } = useAuth()
-    console.log('Username', username)
+    const {  logout } = useAuth()
     return (
         <View style={styles.content} >
             <View style={styles.welcome}>
                 <Text style={styles.title} >Bienvenido</Text>
-                <Text style={styles.title} >{username.name} {username.lastName}</Text>
+                <Text style={styles.title} >{DetailUser.username} {DetailUser.username}</Text>
             </View>
             <View>
-                <ItemMenu title='Nombre' texto={`${username.name} ${username.lastName}`} />
-                <ItemMenu title='Nombre de usuario' texto={username.username} />
-                <ItemMenu title='Correo' texto={username.email} />
-                <ItemMenu title='Pokemons Favoritos' texto={username.totalFavorites} />
+                <ItemMenu title='Nombre' texto={`${DetailUser.name} ${DetailUser.lastName}`} />
+                <ItemMenu title='Nombre de usuario' texto={DetailUser.username} />
+                <ItemMenu title='Correo' texto={DetailUser.email} />
+                <ItemMenu title='Pokemons Favoritos' texto={DetailUser.totalFavorites} />
             </View>
             <Button title='Log Out' onPress={logout} />
         </View>

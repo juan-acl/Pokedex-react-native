@@ -39,6 +39,7 @@ const Pokedex = () => {
         pokemons={pokemons}
         getPokemonsApi={getPokemonsApi}
         nextUrl={nextUrl}
+        isFav={false}
       />
     </SafeAreaView>
   );

@@ -15,10 +15,7 @@ export default function Favorites(props) {
 
     const checkFavorite = async () => {
         const favorites = await isFavoritePokemon(props.id);
-        console.log('Checking', favorites)
-        // if (favorites !== null || favorites !== undefined) {
             setisFavorite(favorites);
-        // }
     }
 
     const removeFav = async () => {

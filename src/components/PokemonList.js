@@ -7,10 +7,9 @@ import {
 import PokemonCard from "./PokemonCard";
 
 const PokemonList = (props) => {
-  const { pokemons, getPokemonsApi, nextUrl } = props;
-
+  const { pokemons, getPokemonsApi, nextUrl, isFav } = props;
   const paginationPokemons = () => {
-    getPokemonsApi();
+    if(getPokemonsApi !== undefined) getPokemonsApi();
   };
 
   return (
@@ -22,15 +21,17 @@ const PokemonList = (props) => {
       renderItem={({ item }) => <PokemonCard pokemon={item} />}
       contentContainerStyle={style.flatList}
       onEndReached={nextUrl !== null ? paginationPokemons : null} // Cuando llegue al final de la lista vuelve a cargar mas pokemons
-      onEndReachedThreshold={2} //Antes de llegar al final de todo los pokemos que se cargen mas
+      // onEndReachedThreshold={0.5} //Antes de llegar al final de todo los pokemos que se cargen mas
       ListFooterComponent={
-        nextUrl !== null && (
-          <ActivityIndicator
-            size="large"
-            style={style.spinner}
-            color="#AEAEAE"
-          />
-        )
+        !isFav ? 
+          nextUrl !== null && (
+            <ActivityIndicator
+              size="large"
+              style={style.spinner}
+              color="#AEAEAE"
+            />
+          ) : null
+        
       }
     />
   );

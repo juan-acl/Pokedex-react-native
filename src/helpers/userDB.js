@@ -8,5 +8,5 @@ export const DetailUser = {
     name: 'Juan',
     lastName: 'Chuc',
     email: 'jchuc@gmai.com',
-    totalFavorites: 5,
+    totalFavorites: 0,
 }

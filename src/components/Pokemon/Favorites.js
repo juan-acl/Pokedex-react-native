@@ -3,8 +3,10 @@ import { View, Text } from 'react-native'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 import { addFavorite, isFavoritePokemon, removeFavorite } from '../../helpers/Favorite'
+import useAuth from '../../context'
 
 export default function Favorites(props) {
+
     const [isFavorite, setisFavorite] = useState(false);
     const [reload, setReload] = useState(false);
     const Icon = isFavorite ? FontAwesome : FontAwesome5;

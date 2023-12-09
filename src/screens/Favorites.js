@@ -8,10 +8,11 @@ import PokemonList from "../components/PokemonList";
 
 
 const Favorites = (props) => {
-  console.log('Validando las props', props)
+  console.log('Validando las props', JSON.stringify(props, null, 2))
   const { username } = useAuth()
   const [pokemons, setPokemons] = useState([]);
   const fav = true
+  let invalid = false
 
   useFocusEffect(
     useCallback(() => {
@@ -23,6 +24,8 @@ const Favorites = (props) => {
   const loadPokemons = async () => {
     try{
       const response = await getFavorites()
+
+      console.log('Response del id', response)
       const pokemonFav = []
       if(response !== undefined) {
         for(const fav of response) {
@@ -35,8 +38,10 @@ const Favorites = (props) => {
             image: pokemonFavorite.sprites.other['official-artwork'].front_default
           })
         }
+        setPokemons([...pokemons, ...pokemonFav])
+      }else{
+        invalid = true
       }
-      setPokemons([...pokemons, ...pokemonFav])
     }catch(error) {
       console.log('Error en los pokemones favoritos', error)
     }
@@ -46,20 +51,20 @@ const Favorites = (props) => {
   //   loadPokemons()
   // }, []);
 
+
   if (username !== '') {
     return (
       <SafeAreaView>
         <PokemonList
           pokemons={pokemons}
           isFav={fav}
-
         />
       </SafeAreaView>
     )
   }else{
     return (
       <SafeAreaView>
-        <Text>Usuario no loegueado</Text>
+        <Text> {invalid ? 'No tienes pokemones en tu lista de favoritos.' :'Usuario no loegueado.'}</Text>
       </SafeAreaView>
     );
   }
